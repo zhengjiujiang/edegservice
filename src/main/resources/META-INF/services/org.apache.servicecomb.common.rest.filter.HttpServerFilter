@@ -1,1 +1,3 @@
-com.huawei.servicecomb.AuthServerFilter
+#com.huawei.servicecomb.AuthServerFilter
+# 当前版本不支持ContextParameter，暂时在ApiDispatcher里面使用HTTP Header来增加用户ID.
+# com.huawei.cse.houseapp.edge.AuthFilter

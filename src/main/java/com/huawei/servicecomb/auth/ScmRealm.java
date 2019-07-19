@@ -5,6 +5,9 @@ import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.realm.Realm;
 
+/**
+ * @author DEV-TOM
+ */
 public class ScmRealm implements Realm {
     @Override
     public String getName() {
