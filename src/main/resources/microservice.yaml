@@ -1,0 +1,62 @@
+APPLICATION_ID: default
+service_description:
+  name: scmedgeservice
+  version: 0.0.1
+  environment: testing
+  properties:
+    allowCrossApp: false
+cse:
+  service:
+    registry:
+      address: http://192.168.3.27:30100
+      instance:
+        watch: false
+  rest:
+    address: 0.0.0.0:18084
+    client:
+      thread-count: 8
+      connection:
+        maxPoolSize: 10
+        idleTimeoutInSeconds: 30
+  accesslog:
+    enabled: true
+    pattern: "%h %{dd/MMM/yyyy:HH:mm:ss.SSSZ|GMT+0008|en_US}t %r %s %B %D"
+  metrics:
+    enabled: true
+    window_time: 60000
+    publisher:
+      defaultLog:
+        enabled: true
+  http:
+    dispatcher:
+      edge:
+        url:
+          enabled: true
+          mappings:
+            scm-common:
+              prefixSegmentCount: 1
+              path: "/scm.common/.*"
+              microserviceName: scm-common
+              versionRule: 0.0.1-2.0.0
+            scm-supplier:
+              prefixSegmentCount: 1
+              path: "/scm.supplier/.*"
+              microserviceName: scm-supplier
+              versionRule: 0.0.1-2.0.0
+            scm-tender:
+              prefixSegmentCount: 1
+              path: "/scm.tender/.*"
+              microserviceName: scm-tender
+              versionRule: 0.0.1-2.0.0
+            scm-contract:
+              prefixSegmentCount: 1
+              path: "/scm.contract/.*"
+              microserviceName: scm-contract
+              versionRule: 0.0.1-2.0.0
+  cors:
+    enabled: true
+    origin: "http://*.*.kundeyt.cn-east-2.huaweicse.com"
+    allowCredentials: true
+    allowedHeader: "Content-Type,appid,content-type"
+    allowedMethod: GET,POST,PUT,DELETE
+    maxAge: 3600

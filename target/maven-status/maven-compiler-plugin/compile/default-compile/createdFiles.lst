@@ -1,0 +1,5 @@
+com\huawei\servicecomb\auth\JWTWebSubjectFactory.class
+com\huawei\servicecomb\auth\JWTToken.class
+com\huawei\servicecomb\AuthServerFilter.class
+com\huawei\servicecomb\auth\ScmRealm.class
+com\huawei\servicecomb\ScmedgeserviceApplication.class
